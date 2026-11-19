@@ -1,0 +1,49 @@
+<!--pages/nor_flash_burn/nor_flash_burn.wxml-->
+<view class="container">
+  <view class="page-title">NOR Flash 烧录</view>
+
+  <view class="field">
+    <text class="field-label">起始偏移地址</text>
+    <input class="offset-input" type="text" value="{{offsetText}}" placeholder="如 0x00100000"
+      placeholder-class="offset-placeholder" disabled="{{isBurning}}" bindinput="onOffsetInput" />
+    <text class="field-hint">{{offsetHint}}</text>
+  </view>
+
+  <button class="choose-btn" bindtap="chooseBinFile" disabled="{{isBurning}}">选择BIN文件</button>
+
+  <view class="info">
+    <view class="info-row">
+      <text class="info-label">文件名</text>
+      <text class="info-value">{{binName || '-'}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">文件大小</text>
+      <text class="info-value">{{binSize}} 字节</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">数据包</text>
+      <text class="info-value">{{burnSentPackets}} / {{burnTotalPackets}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">已下发字节</text>
+      <text class="info-value">{{burnSentBytes}} / {{binSize}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">烧录状态</text>
+      <text class="info-value">{{burnStatusText}}</text>
+    </view>
+    <view class="progress-wrap">
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{burnProgress}}%;"></view>
+      </view>
+      <text class="progress-text">{{burnProgress}}%</text>
+    </view>
+  </view>
+
+  <button class="start-burn-btn" bindtap="startBurn" disabled="{{!hasSelectedBinFile || isBurning}}">
+    {{isBurning ? '烧录中…' : '开始烧录'}}
+  </button>
+  <button class="abort-burn-btn" wx:if="{{isBurning && !stopRequested}}" bindtap="stopBurn">中断停止</button>
+
+  <view class="tips">烧录期间请保持蓝牙连接，设备不得休眠。烧录完成后设备会自动重启；中途点"中断停止"会立刻停止下发，设备把已收到的缓存写入 flash 后同样重启（不支持续传）。</view>
+</view>

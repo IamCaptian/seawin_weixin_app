@@ -1,0 +1,54 @@
+<!--pages/device.wxml-->
+<view class="device-container">
+
+
+  <!-- 设备信息容器 -->
+  <view class="device_info-box gradient-box">
+    <view class="device-info_text">集成商:{{Device_Info.Integrator}}</view>
+    <view class="device-info_text">软件版本:{{Device_Info.Version}}</view>
+    <view class="device-info_text">是否有更新:{{Device_Info.upgrade}}</view>
+  </view>
+  <!-- 获取设备信息按钮   在OTA进行时，-->
+  <button bindtap="get_dev_version" class="get_device_info_button" wx:if="{{!is_ento_ota_process}}">获取设备信息</button>
+
+  <view class="ota-mode-hint" wx:if="{{show_ota_mode_button}}">
+    <icon class="hint-icon" type="info" size="40" color="#1890ff"></icon>
+    <view class="hint-text" wx:if="{{show_ota_mode_button}}">进入OTA模式后设备会重启，重新连接后点击获取设备信息，将会出现升级按钮</view>
+  </view>
+  <!-- 进入OTA模式按钮 -->
+  <button bindtap="into_ble_ota" class="get_device_info_button" wx:if="{{show_ota_mode_button}}">进入升级模式</button>
+  <!-- 更新进度条 -->
+  <view class="progress-container" wx:if="{{is_ento_ota_process}}">
+    <progress percent="{{download_progress}}" font-size="20" show-info border-radius="20" color="#1890ff" duration="40" stroke-width="20" activeColor="#1890ff" />
+  </view>
+  <!-- 开始OTA按钮 -->
+  <button bindtap="start_ota" wx:if="{{show_start_ota_button&& !is_ento_ota_process}}">开始升级</button>
+  <!-- 开始OTA按钮 -->
+  <button bindtap="test_app_push_check_dev" >校验设备</button>
+
+
+  <view class="ota-mode-hint">
+    <icon class="hint-icon" type="info" size="40" color="#1890ff"></icon>
+    <text class="hint-text">升级步骤:
+      1、连接到设备，点击获取设备信息
+      2、若有可用更新，点击进入升级模式，设备会息屏并等待更新
+      3、重新启动小程序，重新连接到设备
+      4、再次点击获取设备信息
+      5、点击开始升级即可
+      6、升级完成等待自动重启，不要操作设备，约等待2分钟启动
+      7、升级期间不要切换其他页面！
+      注意: 为了避免给您造成不好的体验，升级过程中请勿退出微信与操作设备，并保持充电器的连接。升级完成或者升级失败都会自动重启，若等待2分钟后没有重启，长按背部按键10秒可以强制重启。
+      操作提示：
+      若OTA过程中若断开连接或者操作失误，搜索不到蓝牙，长按背部按键10秒重新启动。
+    </text>
+  </view>
+  <!-- <button bindtap="web_test">网站测试</button> -->
+
+  <!-- <button bindtap="downloadBinFile">发送POST请求</button> -->
+ <!-- <button bindtap="chooseAndReadFile">打开文件</button> -->
+  <!-- <button bindtap="start_update_finsh">发送完毕</button>
+
+  <button bindtap="stop_ota">停止OTA</button>
+  <button bindtap="finsh_ota">OTA完成</button> -->
+
+</view>

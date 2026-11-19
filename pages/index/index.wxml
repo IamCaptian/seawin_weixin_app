@@ -1,0 +1,33 @@
+<!--index.wxml-->
+
+<scroll-view class="main-container" scroll-y="true">
+    <privacy></privacy>
+    <view class="header">
+        <view class="header-title">蓝牙设备</view>
+        <view class="header-subtitle">点击设备开始连接</view>
+    </view>
+
+    <view class="list">
+        <view wx:for="{{deviceListDataShow}}" wx:key="id" class="card" hover-class="card-hover" hover-start-time="0" hover-stay-time="100" bindtap="listViewTap" data-name="{{item}}">
+            <view class="card-left">
+                <image wx:if="{{item.manufacturer==='eciot'}}" src="/img/ecble.png" class="device-icon"></image>
+                <image wx:else src="/img/ble.png" class="device-icon"></image>
+            </view>
+            <view class="card-mid">
+                <text class="device-name">{{item.name}}</text>
+            </view>
+            <view class="card-right">
+                <image wx:if="{{item.rssi >= -41}}" src="/img/s5.png" mode="aspectFit" class="rssi-icon"></image>
+                <image wx:elif="{{item.rssi >= -55}}" src="/img/s4.png" mode="aspectFit" class="rssi-icon"></image>
+                <image wx:elif="{{item.rssi >= -65}}" src="/img/s3.png" mode="aspectFit" class="rssi-icon"></image>
+                <image wx:elif="{{item.rssi >= -75}}" src="/img/s2.png" mode="aspectFit" class="rssi-icon"></image>
+                <image wx:elif="{{item.rssi < -75}}" src="/img/s1.png" mode="aspectFit" class="rssi-icon"></image>
+                <text class="rssi-text">{{item.rssi}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view wx:if="{{deviceListDataShow.length==0}}" class="notice"> - 没有扫描到设备，请确认蓝牙是否打开 - </view>
+    <view class="gap"></view>
+
+</scroll-view>

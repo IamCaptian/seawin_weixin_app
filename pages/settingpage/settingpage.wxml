@@ -1,0 +1,23 @@
+<!--pages/settingpage/settingpage.wxml-->
+<view class="ota-page">
+  <view class="bg-circle bg-circle-1"></view>
+  <view class="bg-circle bg-circle-2"></view>
+
+  <view class="ota-header">
+    <view class="ota-title">设置</view>
+    <view class="ota-subtitle">个性化与设备管理</view>
+  </view>
+
+  <view class="ota-card">
+    <!-- <button class="choose-btn" bindtap="navigate_to_change_wallpaper">更换壁纸</button> -->
+
+    <button class="choose-btn knx-btn" bindtap="navigate_to_seawin_knx">打开 KNX 校验工具</button>
+
+    <button class="choose-btn flash-btn" bindtap="navigate_to_nor_flash_burn">NOR Flash 烧录</button>
+
+    <view class="version-row">
+      <text class="version-label">版本</text>
+      <text class="version-value">v1.0.4</text>
+    </view>
+  </view>
+</view>

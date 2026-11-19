@@ -1,0 +1,23 @@
+<!--pages/bk7258_ota/bk7258_ota.wxml-->
+<view class="ota-page">
+  <view class="bg-circle bg-circle-1"></view>
+  <view class="bg-circle bg-circle-2"></view>
+
+  <view class="ota-header">
+    <view class="ota-title">BK7258在线升级</view>
+    <view class="ota-subtitle">选择固件文件后开始升级</view>
+  </view>
+
+  <view class="ota-card">
+    <button class="choose-btn" bindtap="chooseBinFile">选择BIN/RBL文件</button>
+
+    <button wx:if="{{hasSelectedBinFile}}" class="start-btn" type="primary" bindtap="bk7258_start_ota">开始OTA</button>
+
+    <view wx:if="{{hasSelectedBinFile}}" class="progress-wrap">
+      <view class="progress-text">发送进度：{{otaProgress}}%</view>
+      <view class="progress-bar">
+        <view class="progress-inner" style="width: {{otaProgress}}%;"></view>
+      </view>
+    </view>
+  </view>
+</view>

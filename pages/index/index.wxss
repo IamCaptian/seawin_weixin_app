@@ -1,0 +1,112 @@
+/**index.wxss**/
+page {
+    background: linear-gradient(180deg, #f7f8fa 0%, #eef2f7 100%);
+}
+
+.main-container {
+    height: 100vh;
+    padding: 28rpx 24rpx 40rpx;
+    box-sizing: border-box;
+}
+
+.header {
+    padding: 18rpx 8rpx 12rpx;
+}
+
+.header-title {
+    font-size: 44rpx;
+    font-weight: 700;
+    letter-spacing: 2rpx;
+    color: #101828;
+}
+
+.header-subtitle {
+    margin-top: 10rpx;
+    font-size: 26rpx;
+    color: #667085;
+}
+
+.list {
+    margin-top: 18rpx;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    padding: 22rpx 20rpx;
+    border-radius: 24rpx;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(16, 24, 40, 0.06);
+    box-shadow: 0 16rpx 40rpx rgba(16, 24, 40, 0.08);
+    margin-top: 18rpx;
+    overflow: hidden;
+}
+
+.card-hover {
+    background: rgba(255, 255, 255, 0.78);
+}
+
+.card-left {
+    width: 84rpx;
+    height: 84rpx;
+    border-radius: 20rpx;
+    background: rgba(16, 24, 40, 0.04);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.device-icon {
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.card-mid {
+    flex: 1;
+    padding: 0 18rpx;
+    min-width: 0;
+}
+
+.device-name {
+    display: block;
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #101828;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-right {
+    display: flex;
+    align-items: center;
+    gap: 10rpx;
+    flex: 0 0 auto;
+}
+
+.rssi-icon {
+    width: 34rpx;
+    height: 34rpx;
+}
+
+.rssi-text {
+    font-size: 24rpx;
+    font-weight: 600;
+    color: #475467;
+    min-width: 72rpx;
+    text-align: right;
+}
+
+.notice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80rpx;
+    font-size: 26rpx;
+    color: #667085;
+}
+
+.gap {
+    height: 120rpx;
+}

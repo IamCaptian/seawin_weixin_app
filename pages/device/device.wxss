@@ -1,0 +1,123 @@
+/* pages/device.wxss */
+.device-container {
+    height: 100vh;
+}
+
+
+
+
+
+
+/*进度条容器*/
+.progress-container {
+    padding: 5px;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    margin: 10px;
+    font-weight: bold;
+  }
+  
+/*获取设备信息按钮容器*/
+.get_device_info_button {
+    background-color: #1890ff;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    min-width: 200px;
+    /* 添加过渡效果，让状态变化更平滑 */
+    transition: all 0.1s ease; 
+}
+.get_device_info_button:active {
+    background-color: #096dd9; /* 一个比原来更深的蓝色 */
+    transform: scale(0.98);    /* 轻微缩小到原来的98% */
+}
+
+/*设备信息展示容器*/
+.device_info-box {
+    width: 100%;
+    padding: 40rpx 30rpx;
+    margin-bottom: 30rpx;
+    font-size: 28rpx;
+    color: #333;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    /* 关键：子元素垂直排列 */
+    align-items: center;
+    /* 子元素水平居中 */
+    justify-content: center;
+    /* 子元素垂直居中 */
+    gap: 20rpx;
+    /* 子元素之间的垂直间距（无需再写 margin-bottom） */
+
+}
+.gradient-box {
+    /* 2. 叠加径向渐变：模拟中心发光效果（增强层次感） */
+    background-image:
+        linear-gradient(135deg, #93aeec 0%, #3b82f6 50%, #9674e7 100%),
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 50%);
+    /* 3. 发光边框：科技感标志性效果（模糊+半透明） */
+    box-shadow:
+        0 0 20rpx rgba(59, 130, 246, 0.5),
+        /* 外发光（蓝色） */
+        0 0 40rpx rgba(139, 92, 246, 0.3);
+    /* 外发光（紫色，扩散更远） */
+    /* 4. 圆角+内边距：保持容器精致感 */
+    border-radius: 20rpx;
+    /* 圆角稍大，更现代 */
+    padding: 50rpx 30rpx;
+    /* 增大内边距，避免内容贴边 */
+    /* 5. 文字样式：增强对比，呼应科技感 */
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 0 8rpx rgba(255, 255, 255, 0.3);
+    /* 文字轻微发光 */
+}
+.device-info_text {
+    width: 100%;
+    text-align: center;
+    font-size: 30rpx;
+    line-height: 1.5;
+
+    /* --- 新增代码 --- */
+    color: #ffffff;
+    /* 设置字体颜色为白色 */
+    font-weight: bold;
+    /* 设置字体为加粗样式 */
+    letter-spacing: 2rpx;
+    /* 调整字体间距，单位推荐使用 rpx */
+    text-align: left;
+    /* 同时将文字本身也设置为左对齐（默认就是左对齐） */
+    /* --- 新增代码结束 --- */
+}
+
+
+
+
+.ota-mode-hint {
+    /* 使用 flex 布局让图标和文字在一行并垂直居中 */
+    display: flex;
+    align-items: center;
+    
+    /* 增加内边距，让提示框看起来更舒展 */
+    padding: 12px 16px;
+    
+    /* 使用柔和的背景色和边框，营造提示感 */
+    background-color: #e6f7ff; /* 浅蓝色背景 */
+    border: 1px solid #91d5ff; /* 边框颜色 */
+    border-left: 4px solid #1890ff; /* 左侧强调线，增强视觉焦点 */
+    
+    /* 圆角让外观更友好 */
+    border-radius: 4px;
+    
+    /* 增加外边距，与其他元素保持距离 */
+    margin: 10px 0;
+  }
+
+  .hint-text {
+    /* 定义文本颜色和大小 */
+    color: #00475f;
+    font-size: 14px;
+    /* 让文本自动换行 */
+    word-break: break-all;
+  }

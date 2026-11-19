@@ -1,0 +1,127 @@
+<!--pages/child_page/seawin_knx/seawin_knx.wxml-->
+<view class="page">
+  <view class="card">
+    <view class="title">KNX CRC 工具</view>
+    <view class="desc">输入 KNX 数据后，自动在尾部加入 sum 和校验，再生成蓝牙数据包与完整报文。</view>
+
+    <view class="section-title">输入 KNX 数据</view>
+    <textarea
+      class="input-area"
+      placeholder="示例：01 02 03 04"
+      value="{{knxInput}}"
+      bindinput="handleKnxInput"
+      auto-height
+      maxlength="-1"
+    />
+    <view class="tip">例如输入 `01 02 03 04`，会自动追加 sum 低八位 `0A`，形成蓝牙数据包 `01 02 03 04 0A`。</view>
+    <button class="btn btn-primary send-btn top-send-btn" bindtap="sendCurrentData">发送蓝牙数据</button>
+
+    <view class="section-title section-gap">BLE命令</view>
+    <picker
+      mode="selector"
+      range="{{commandOptions}}"
+      value="{{commandIndex}}"
+      bindchange="handleCommandChange"
+    >
+      <view class="picker-box">{{commandOptions[commandIndex]}}</view>
+    </picker>
+    <view class="tip">{{frameRuleText}}</view>
+    <view wx:if="{{inputError}}" class="error-text">{{inputError}}</view>
+
+    <view class="btn-row">
+      <button class="btn btn-primary" bindtap="fillExample">填充示例</button>
+      <button class="btn btn-light" bindtap="clearInput">清空</button>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="collapse-header" bindtap="toggleResultPanel">
+      <view class="section-title collapse-title">计算结果</view>
+      <view class="collapse-indicator">
+        <text class="collapse-indicator-text">{{showResultPanel ? '收起' : '展开'}}</text>
+        <text class="collapse-indicator-arrow">{{showResultPanel ? '▲' : '▼'}}</text>
+      </view>
+    </view>
+
+    <view wx:if="{{showResultPanel}}">
+      <view class="item">
+        <view class="label">规范化 KNX 数据</view>
+        <view class="value">{{normalizedKnxData || '-'}}</view>
+      </view>
+
+      <view class="item-inline">
+        <view class="item half">
+          <view class="label">帧头</view>
+          <view class="value">{{normalizedHeader || '-'}}</view>
+        </view>
+        <view class="item half">
+          <view class="label">命令</view>
+          <view class="value">{{normalizedCommand || '-'}}</view>
+        </view>
+      </view>
+
+      <view class="item-inline">
+        <view class="item half">
+          <view class="label">sum 低八位</view>
+          <view class="value">{{sumHex || '-'}}</view>
+        </view>
+        <view class="item half">
+          <view class="label">蓝牙数据包长度</view>
+          <view class="value">{{payloadLength}}</view>
+        </view>
+      </view>
+
+      <view class="item">
+        <view class="label">蓝牙数据包</view>
+        <view class="value">{{normalizedPayload || '-'}}</view>
+      </view>
+
+      <view class="item-inline">
+        <view class="item half">
+          <view class="label">长度字段</view>
+          <view class="value">{{lengthHex}}</view>
+        </view>
+        <view class="item half">
+          <view class="label">CRC</view>
+          <view class="value">{{crcHex || '-'}}</view>
+        </view>
+      </view>
+
+      <view class="item">
+        <view class="label">显示完整数据（包含帧头、命令、长度、CRC）</view>
+        <view class="value">{{fullPacketDisplay || '-'}}</view>
+      </view>
+
+      <view class="item">
+        <view class="label">发送字符串</view>
+        <view class="value">{{sendHexString || '-'}}</view>
+      </view>
+
+      <view class="btn-row">
+        <button class="btn btn-primary single-btn" bindtap="copyFullResult">复制完整报文</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">接收消息</view>
+    <view class="tip">仅显示 `USER_BLE_PRIVATE_PROTOCOL_SEAWIN` 返回包的 data 区内容，已去掉帧头、命令、长度和 CRC。长按文本可选择复制。</view>
+    <scroll-view class="receive-box" scroll-y="true">
+      <view wx:if="{{receivedMessages.length === 0}}" class="receive-empty">-</view>
+      <view wx:for="{{receivedMessages}}" wx:key="index" class="receive-log-item">
+        <view class="receive-log-header">
+          <view class="label">第 {{index + 1}} 条</view>
+          <view class="copy-chip" catchtap="copyReceivedMessage" data-index="{{index}}">复制</view>
+        </view>
+        <textarea
+          class="receive-log-textarea"
+          disabled="true"
+          auto-height
+          maxlength="-1"
+          value="{{item}}"
+        />
+      </view>
+    </scroll-view>
+    <button class="btn btn-light single-btn" bindtap="clearReceivedMessage">清空接收消息</button>
+  </view>
+</view>

@@ -1,0 +1,118 @@
+/* pages/cl1303_ota/cl1303_ota.wxss */
+page {
+  min-height: 100%;
+  background:
+    radial-gradient(900rpx 900rpx at 10% 8%, rgba(99, 179, 237, 0.22), rgba(99, 179, 237, 0) 60%),
+    radial-gradient(900rpx 900rpx at 92% 18%, rgba(104, 211, 145, 0.18), rgba(104, 211, 145, 0) 58%),
+    radial-gradient(900rpx 900rpx at 28% 92%, rgba(246, 173, 85, 0.16), rgba(246, 173, 85, 0) 58%),
+    linear-gradient(180deg, #0b1220 0%, #0c1a33 55%, #0b1220 100%);
+}
+
+.page-title {
+  width: 100%;
+  font-size: 40rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+  color: rgba(255, 255, 255, 0.92);
+  text-align: center;
+  padding: 18rpx 0 8rpx;
+  margin-bottom: 18rpx;
+}
+
+.container {
+  padding: 56rpx 40rpx 48rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 32rpx;
+  border-radius: 28rpx;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 24rpx 64rpx rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+}
+
+.container button {
+  width: 100%;
+  border-radius: 20rpx;
+  font-size: 32rpx;
+  padding: 26rpx 0;
+  margin-top: 22rpx;
+  line-height: 1.2;
+  color: #fff;
+  box-shadow: 0 18rpx 36rpx rgba(0, 0, 0, 0.22);
+}
+
+.container button::after {
+  border: none;
+}
+
+.choose-btn {
+  margin-top: 0;
+  background: linear-gradient(135deg, #2f855a 0%, #38b2ac 100%);
+}
+
+.test-btn {
+  background: linear-gradient(135deg, #2b6cb0 0%, #4299e1 100%);
+}
+
+.start-ota-btn {
+  background: linear-gradient(135deg, #6b46c1 0%, #9f7aea 100%);
+}
+
+.info {
+  margin-top: 28rpx;
+  padding: 22rpx 20rpx;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16rpx;
+  width: 100%;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8rpx 0;
+}
+
+.info-label {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.info-value {
+  font-size: 26rpx;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+}
+
+.progress-wrap {
+  margin-top: 18rpx;
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 16rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.16);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999rpx;
+  background: linear-gradient(90deg, rgba(56, 178, 172, 0.8) 0%, rgba(159, 122, 234, 0.9) 100%);
+}
+
+.progress-text {
+  width: 90rpx;
+  text-align: right;
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.86);
+}

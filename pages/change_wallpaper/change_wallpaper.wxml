@@ -1,0 +1,46 @@
+<!--pages/settingpage/settingpage.wxml-->
+<view class="container">  
+
+<!-- 选择图片按钮 -->
+<button bindtap="chooseAndScaleImage" type="primary" wx:if="{{!is_ento_ota_process}}">选择图片</button>
+
+<view class="device_info-box gradient-box">
+  <view class="device-info_text">图片要求：</view>
+  <view class="device-info_text">1、宽高 >= 400</view>
+  <view class="device-info_text">2、图片比例1:1，手机裁剪即可</view>
+  <text class="device-info_text">操作步骤:
+      1、打开手机图库
+      2、选中要设置为壁纸的图片或照片
+      3、点击照片底部"铅笔"或编辑按钮
+      4、选择裁剪功能
+      5、点击比例选项
+      6、选择1:1比例
+      7、点击完成后保存
+      8、若提示是否保存原图，看个人需要
+      9、点击微信小程序中选择图片按钮，选中裁剪好的图片，点击升级即可
+    </text>
+
+
+
+
+
+
+
+
+
+    </view>
+
+  <!-- <button bindtap="chooseAndReadFile">打开文件</button> -->
+  <view class="progress-container" wx:if="{{show_download_button}}">
+        <progress percent="{{download_progress}}" font-size="20" show-info border-radius="20" color="#1890ff" duration="40" stroke-width="20" activeColor="#1890ff" />
+    </view>
+  <button bindtap="start_download" wx:if="{{show_download_button&&!is_ento_ota_process}}">开始更新壁纸</button>
+<!-- 显示缩放后的图片（隐藏 Canvas 节点） -->
+<view class="image-container" wx:if="{{scaledImageUrl}}">
+  <image src="{{scaledImageUrl}}" mode="widthFix" class="scaled-image" />
+  <text class="image-info">缩放后尺寸：{{scaledWidth}}x{{scaledHeight}}</text>
+</view>
+
+<!-- Canvas 临时节点（必须隐藏，不占页面空间） -->
+<canvas type="2d" id="scaleCanvas" class="canvas-hidden" />
+</view>

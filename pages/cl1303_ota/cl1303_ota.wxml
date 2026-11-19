@@ -1,0 +1,38 @@
+<!--pages/cl1303_ota/cl1303_ota.wxml-->
+<view class="container">
+  <view class="page-title">离线语音在线升级</view>
+  <button class="choose-btn" bindtap="chooseBinFile">选择BIN文件</button>
+
+  <view class="info" wx:if="{{hasSelectedBinFile}}">
+    <view class="info-row">
+      <text class="info-label">文件大小</text>
+      <text class="info-value">{{binSize}} 字节</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">固件版本</text>
+      <text class="info-value">{{firmwareVersionText}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">升级状态</text>
+      <text class="info-value">{{otaStatusText}}</text>
+    </view>
+    <view class="info-row" wx:if="{{otaTotalPackets > 0}}">
+      <text class="info-label">已确认</text>
+      <text class="info-value">{{otaConfirmedPackets}} / {{otaTotalPackets}} 包</text>
+    </view>
+    <view class="info-row" wx:if="{{otaTotalPackets > 0}}">
+      <text class="info-label">已确认字节</text>
+      <text class="info-value">{{otaConfirmedBytes}} / {{binSize}}</text>
+    </view>
+    <view class="progress-wrap">
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{otaProgress}}%;"></view>
+      </view>
+      <text class="progress-text">{{otaProgress}}%</text>
+    </view>
+  </view>
+
+  <button class="start-ota-btn" bindtap="startAutoOta" disabled="{{!hasSelectedBinFile || isUpgrading}}">
+    {{isUpgrading ? '升级中…' : '开始升级'}}
+  </button>
+</view>

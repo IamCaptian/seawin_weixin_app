@@ -1,0 +1,267 @@
+/* pages/child_page/seawin_knx/seawin_knx.wxss */
+.page {
+  min-height: 100vh;
+  padding: 24rpx 24rpx 48rpx;
+  background: #f5f7fb;
+  box-sizing: border-box;
+}
+
+.card {
+  margin-bottom: 24rpx;
+  padding: 28rpx 24rpx;
+  border-radius: 20rpx;
+  background: #ffffff;
+  box-shadow: 0 8rpx 24rpx rgba(15, 23, 42, 0.06);
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.desc {
+  margin-top: 14rpx;
+  font-size: 26rpx;
+  line-height: 1.6;
+  color: #6b7280;
+}
+
+.section-title {
+  margin-bottom: 18rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #111827;
+}
+
+.collapse-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8rpx;
+}
+
+.collapse-title {
+  margin-bottom: 0;
+}
+
+.collapse-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  box-shadow: 0 6rpx 16rpx rgba(37, 99, 235, 0.08);
+}
+
+.collapse-indicator-text {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.collapse-indicator-arrow {
+  font-size: 20rpx;
+  color: #1d4ed8;
+}
+
+.section-gap {
+  margin-top: 18rpx;
+}
+
+.input-box {
+  width: 100%;
+  height: 88rpx;
+  padding: 0 20rpx;
+  border: 2rpx solid #dbe3f0;
+  border-radius: 16rpx;
+  background: #f9fbff;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #111827;
+}
+
+.picker-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 88rpx;
+  padding: 20rpx;
+  border: 2rpx solid #dbe3f0;
+  border-radius: 16rpx;
+  background: #f9fbff;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  line-height: 1.5;
+  color: #111827;
+}
+
+.input-area {
+  width: 100%;
+  min-height: 220rpx;
+  padding: 20rpx;
+  border: 2rpx solid #dbe3f0;
+  border-radius: 16rpx;
+  background: #f9fbff;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #111827;
+}
+
+.tip {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  line-height: 1.6;
+  color: #6b7280;
+  word-break: break-all;
+}
+
+.error-text {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #dc2626;
+}
+
+.btn-row {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 24rpx;
+}
+
+.btn {
+  flex: 1;
+  margin: 0;
+  border-radius: 14rpx;
+  font-size: 28rpx;
+}
+
+.btn::after {
+  border: none;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.btn-light {
+  background: #eef2ff;
+  color: #1d4ed8;
+}
+
+.single-btn {
+  flex: none;
+  width: 100%;
+}
+
+.item {
+  margin-bottom: 20rpx;
+  padding: 18rpx 20rpx;
+  border-radius: 16rpx;
+  background: #f8fafc;
+}
+
+.receive-box {
+  min-height: 320rpx;
+  max-height: 480rpx;
+  margin-bottom: 20rpx;
+  padding: 18rpx 20rpx;
+  border-radius: 16rpx;
+  background: #f8fafc;
+  box-sizing: border-box;
+}
+
+.receive-empty {
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #111827;
+}
+
+.receive-log-item {
+  padding: 18rpx 20rpx;
+  margin-bottom: 18rpx;
+  border-radius: 12rpx;
+  background: #ffffff;
+  border: 1rpx solid #e5e9f2;
+}
+
+.receive-log-item:last-child {
+  margin-bottom: 0;
+}
+
+.receive-log-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.copy-chip {
+  padding: 6rpx 20rpx;
+  border-radius: 999rpx;
+  background: #eef2ff;
+  color: #1d4ed8;
+  font-size: 22rpx;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.receive-log-text {
+  display: block;
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #111827;
+  word-break: break-all;
+}
+
+.receive-log-textarea {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #111827;
+  word-break: break-all;
+  box-sizing: border-box;
+}
+
+.receive-log-textarea::after {
+  border: none;
+}
+
+.item-inline {
+  display: flex;
+  gap: 16rpx;
+}
+
+.half {
+  flex: 1;
+}
+
+.label {
+  margin-bottom: 10rpx;
+  font-size: 24rpx;
+  color: #6b7280;
+}
+
+.value {
+  font-size: 28rpx;
+  line-height: 1.6;
+  color: #111827;
+  word-break: break-all;
+}
+
+.send-btn {
+  width: 100%;
+  margin-top: 24rpx;
+}
+
+.top-send-btn {
+  margin-bottom: 8rpx;
+}

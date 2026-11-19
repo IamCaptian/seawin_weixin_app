@@ -1,0 +1,54 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/device/device",
+        "pages/settingpage/settingpage",
+        "pages/change_wallpaper/change_wallpaper",
+        "pages/password/password",
+        "pages/cl1303_ota/cl1303_ota",
+        "pages/bk7258_ota/bk7258_ota",
+        "pages/child_page/seawin_knx/seawin_knx",
+        "pages/nor_flash_burn/nor_flash_burn"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#e9e9e9",
+        "navigationBarTitleText": "Konke智能",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "backgroundColor": "#e9e9e9",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "蓝牙",
+                "iconPath": "/img/lanya.png",
+                "selectedIconPath": "/img/lanyadong.png"
+            },
+            {
+                "pagePath": "pages/bk7258_ota/bk7258_ota",
+                "text": "升级",
+                "iconPath": "/img/shengji.png",
+                "selectedIconPath": "/img/shengjidong.png"
+            },
+            {
+                "pagePath": "pages/cl1303_ota/cl1303_ota",
+                "text": "CL1303",
+                "iconPath": "/img/shengji.png",
+                "selectedIconPath": "/img/shengjidong.png"
+            },
+            {
+                "pagePath": "pages/settingpage/settingpage",
+                "text": "设置",
+                "iconPath": "/img/shezhi.png",
+                "selectedIconPath": "/img/shezhidong.png"
+            }
+        ]
+    },
+    "__usePrivacyCheck__": true,
+    "usingComponents": {
+        "privacy": "components/privacy/privacy"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}
